@@ -27,3 +27,6 @@ def extract_news(url):
         retval += ((str(i + 1) + ' :: ' + tag.text + '\n<br>') if tag.text != 'More' else '')
     
     return retval
+
+
+print(extract_news('https://www.hackernews.com'))

@@ -9,3 +9,16 @@ to activate the virtual env:
 
 to deactivate just run:
 deactivate
+
+macos setup:
+to set up the virtual env, navigate to the root dir of the project you are working on and run:
+virtualenv venv
+
+if you want your virtualenv to inherit globally installed packages, run:
+virtualenv venv --system-site-packages
+
+to run the virtualenv, run:
+source venv/bin/activate
+
+to leave the virtual env, run:
+deactivate
