@@ -14,7 +14,9 @@ content = ''
 def extract_news(url):
     print("Extracting HackerNews stories...")
     
-    retval  = '<b>HackerNews Top Stories</b>\n<br>-'*50 + '<br>'
+    retval  = '>> HackerNews Top Stories <<'
+    
+    retval += '\n\n\n'
 
     response = requests.get(url)
 
@@ -24,9 +26,10 @@ def extract_news(url):
     parsed_soup = soup.find_all('td', attrs={'class': 'title', 'valign': ''})
 
     for i, tag in enumerate(parsed_soup):
-        retval += ((str(i + 1) + ' :: ' + tag.text + '\n<br>') if tag.text != 'More' else '')
+        retval += ((str(i + 1) + ' :: ' + tag.text + '\n') if tag.text != 'More' else '')
     
     return retval
 
+content += extract_news('https://www.hackernews.com')
 
-print(extract_news('https://www.hackernews.com'))
+print(content)
